@@ -1,8 +1,10 @@
+require('dotenv').config()
 const express = require('express')
 const route = require('./route')
 const path = require('path')
 
 const server = express()
+const port = process.env.PORT || 3000;
 
 server.set('view engine', 'ejs')
 
@@ -14,4 +16,6 @@ server.use(express.urlencoded({extended: true}))
 
 server.use(route)
 
-server.listen(3000, ()=> console.log("Rodando"))
+
+
+server.listen(port, ()=> console.log("Rodando"))
